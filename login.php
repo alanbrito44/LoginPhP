@@ -18,6 +18,8 @@
             $_SESSION['loggedin'] = true;
             $_SESSION['tipoUsuario'] = $_POST['usuario'];
             header("Location: index.php");
+        }else{
+            echo '<div class="alert alert-danger text-center">Usuario o contrasena mala </div>';
         }
     }
 
@@ -38,21 +40,34 @@
 </head>
 <body>
 
-    <div class="mb-3">
-        <label for="exampleFormControlInput1" class="form-label">Email address</label>
-        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
-    </div>
-    <div class="mb-3">
-        <label for="exampleFormControlTextarea1" class="form-label">Example textarea</label>
-        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+    <div class="container">
+        <h1>Login de usuario</h1>
+
+        <form id="formulario" action="login.php" method="POST">
+        <div class="mb-3">
+            <label for="usuario" class="form-label">Usuario:</label>
+            <input
+                id="usuario"
+                type="text"
+                class="form-control"
+                placeholder="Ingrese su usuario"
+                name="usuario"
+            />
+        </div>
+        <div class="mb-3">
+            <label for="contraseña" class="form-label">Contraseña:</label>
+            <input
+                id="contraseña"
+                type="password"
+                class="form-control"
+                placeholder="Ingresa tu contraseña"
+                name="contraseña"
+            />
+        </div>
+        <input type="submit" value="Login" class="btn btn-primary w-100">
+      </form>
     </div>
 
-    <form action="login.php" method="POST">
-        Usuario: <br>
-        <input type="text" name="usuario"><br>
-        Contraseña: <br>
-        <input type="password" name="contraseña"><br>
-        <input type="submit" value="Login">
-    </form>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
 </body>
 </html>
