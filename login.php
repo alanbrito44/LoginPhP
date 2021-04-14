@@ -2,6 +2,8 @@
     session_start();
     $usuario = "administrador";
     $contraseña = "admin";
+    $usuario2 = "secretaria";
+    $contraseña2 = "secre";
 
     if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true){
         header("Location: index.php");
@@ -10,8 +12,18 @@
     if (isset($_POST['usuario']) && isset($_POST['contraseña'])){
         if($_POST['usuario'] == $usuario &&  $_POST['contraseña'] == $contraseña){
             $_SESSION['loggedin'] = true;
+            $_SESSION['tipoUsuario'] = $_POST['usuario'];
+            header("Location: index.php");
+        }else if($_POST['usuario'] == $usuario2 &&  $_POST['contraseña'] == $contraseña2){
+            $_SESSION['loggedin'] = true;
+            $_SESSION['tipoUsuario'] = $_POST['usuario'];
             header("Location: index.php");
         }
+    }
+
+    if(isset($_REQUEST["cerrar"])){
+        session_destroy();
+        header("Location:login.php");
     }
 ?>
 

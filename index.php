@@ -3,6 +3,7 @@
     if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] == false){
         header("Location: login.php");
     }
+    $nom = $_SESSION['tipoUsuario'];
 ?>
 
 <!DOCTYPE html>
@@ -15,5 +16,9 @@
 </head>
 <body>
     <h2>Se ha ingresado correctamente</h2>
+    <?php
+        echo $nom;
+    ?>
+    <a href='login.php?cerrar=true'> Cerrar Sesión</a>
 </body>
 </html>
