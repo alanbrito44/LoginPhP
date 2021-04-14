@@ -1,7 +1,7 @@
 <?php
     session_start();
-    if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] == false){
-        header("location: login.php");
+    if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] == false){
+        header("Location: login.php");
     }
 ?>
 

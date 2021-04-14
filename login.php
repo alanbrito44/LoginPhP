@@ -1,17 +1,16 @@
 <?php
-
+    session_start();
     $usuario = "administrador";
     $contraseña = "admin";
 
-    session_start();
-    if (isset($_SESSION['loggedin']) && $_SESSION['logged_in'] == true){
-        header("location: index.php");
+    if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true){
+        header("Location: index.php");
     }
 
     if (isset($_POST['usuario']) && isset($_POST['contraseña'])){
         if($_POST['usuario'] == $usuario &&  $_POST['contraseña'] == $contraseña){
             $_SESSION['loggedin'] = true;
-            header("location: index.php");
+            header("Location: index.php");
         }
     }
 ?>
@@ -25,7 +24,7 @@
     <title>Pagina Principal</title>
 </head>
 <body>
-    <form action="index.php" method="POST">
+    <form action="login.php" method="POST">
         Usuario: <br>
         <input type="text" name="usuario"><br>
         Contraseña: <br>
